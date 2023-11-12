@@ -43,7 +43,9 @@ const getRouter = ({ queryClient }: GetRouterProps): ReturnType<typeof createBro
       ...appRoutes(queryClient)
     ]
   }
-])
+], {
+  basename: '/english-satchel/'
+})
 
 interface HookProps {
   queryClient: QueryClient
