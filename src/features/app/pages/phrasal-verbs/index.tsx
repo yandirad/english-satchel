@@ -1,20 +1,18 @@
-import { Card, CardContent, CardDescription, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import phrasalVerbs from './common.json'
 
-function AppPhrasalVebsPage () {
+function AppPhrasalVerbsPage () {
   return (
     <>
       <h1>Phrasal Verbs</h1>
       <div>
         {phrasalVerbs.map((item, index) => {
           return (
-            <Card key={index}>
+            <Card key={index} className='my-2'>
               <CardHeader>
-                {item.verb}
+                <CardTitle>{item.verb}</CardTitle>
+                <CardDescription>{item.definition}</CardDescription>
               </CardHeader>
-              <CardDescription>
-                {item.definition}
-              </CardDescription>
               <CardContent>
                 <ul>
                   {item.examples.map((e, i) => (
@@ -30,4 +28,4 @@ function AppPhrasalVebsPage () {
   )
 }
 
-export { AppPhrasalVebsPage }
+export { AppPhrasalVerbsPage }

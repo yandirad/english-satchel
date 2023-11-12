@@ -1,7 +1,7 @@
 import {
   useRouteError,
-  createBrowserRouter,
-  isRouteErrorResponse
+  isRouteErrorResponse,
+  createHashRouter
 } from 'react-router-dom'
 import { type QueryClient } from '@tanstack/react-query'
 import { routes as appRoutes } from '@/features/app/routes'
@@ -33,7 +33,8 @@ export function ErrorPage (): JSX.Element {
 interface GetRouterProps {
   queryClient: QueryClient
 }
-const getRouter = ({ queryClient }: GetRouterProps): ReturnType<typeof createBrowserRouter> => createBrowserRouter([
+
+const getRouter = ({ queryClient }: GetRouterProps): ReturnType<typeof createHashRouter> => createHashRouter([
   {
     path: '/',
     errorElement: <ErrorPage />,
@@ -44,7 +45,7 @@ const getRouter = ({ queryClient }: GetRouterProps): ReturnType<typeof createBro
     ]
   }
 ], {
-  basename: '/english-satchel/'
+  //basename: '/english-satchel/'
 })
 
 interface HookProps {
@@ -52,7 +53,7 @@ interface HookProps {
 }
 
 interface HookReturn {
-  router: ReturnType<typeof createBrowserRouter>
+  router: ReturnType<typeof createHashRouter>
 }
 
 export const useRouter = ({ queryClient }: HookProps): HookReturn => {

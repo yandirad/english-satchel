@@ -2,7 +2,8 @@ import { type RouteObject } from 'react-router-dom'
 import { type QueryClient } from '@tanstack/react-query'
 
 import { AppLayout } from './layout'
-import { AppPhrasalVebsPage } from './pages/phrasal-verbs'
+import { AppPhrasalVerbsPage } from './pages/phrasal-verbs'
+import { AppLinksPage } from './pages/links'
 
 export const routes = (_queryClient: QueryClient): RouteObject[] => [
   {
@@ -10,7 +11,10 @@ export const routes = (_queryClient: QueryClient): RouteObject[] => [
     element: <AppLayout />,
     children: [{
       path: 'phrasal-verbs',
-      element: <AppPhrasalVebsPage />
+      element: <AppPhrasalVerbsPage />
+    }, {
+      path: 'links',
+      element: <AppLinksPage />
     }]
   }
 ]
